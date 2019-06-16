@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<p>演示实例化Vue进行数据绑定的功能</p>
+<div id="app">
+    <h1>Event</h1>
+    <p>My age is {{age}}</p>
+    <button @click.once="add(1)">One Year Up</button>
+    <button @dblclick="add(10)">Ten Year Up</button>
+    <button v-on:click="subtract(1)">One Year Down</button>
+    <button v-on:dblclick="subtract(10)">Ten Year Down</button>
+
+    <div id="canvas" v-on:mousemove="updateXY">
+        {{X}},{{Y}} -
+        <span @mousemove.stop>Stop Moving</span>
+    </div>
+
+    <a v-on:click.prevent="alert2" href="http://www.baidu.com">百度</a>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

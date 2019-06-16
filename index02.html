@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.js"></script>
+
+    <title>演示Vue的语法糖</title>
+</head>
+<body>
+<p>演示Vue的语法糖:绑定元素特性，绑定元素响应事件</p>
+
+<div id="app">
+    <p>{{message}}</p>
+    <input type="text" v-model="message">
+    <button v-on:click="reverseMsg">逆转消息</button>
+    <span v-if="seen">您好，您现在能看到我了</span>
+    <ol>
+        <li v-for="user in users">
+            {{user.name}}
+        </li>
+    </ol>
+</div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            message:'我是一个title',
+            seen:true,
+            users:[
+                {name:'celia'},
+                {name:'celia2'},
+                {name:'celia3'},
+            ]
+        },
+        methods:{
+            reverseMsg:function () {
+                this.message=this.message.split('').reverse().join('');
+            }
+        }
+    });
+</script>
+</body>
+</html>
